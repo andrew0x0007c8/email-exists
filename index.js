@@ -87,7 +87,7 @@ module.exports = ({
                     const conn = net.createConnection(TELNET_PORT, exchange)
 
                     conn.setTimeout(timeout)
-
+                    conn.on('error', reject)
                     conn.on('connect', () => {
 
                         const EOL = '\r\n'
