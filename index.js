@@ -89,6 +89,10 @@ module.exports = ({
                     conn.setTimeout(timeout)
 
                     conn.on('error', reject)
+                   
+                    conn.on('timeout', () => {
+                        reject('TIMEOUT')
+                    })
 
                     conn.on('connect', () => {
 
